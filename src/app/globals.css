@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-surface-muted font-sans text-ink antialiased; }
+  ::selection { @apply bg-royal-200 text-royal-950; }
+  /* Visible keyboard focus everywhere, in the brand purple. */
+  :focus-visible { @apply outline-2 outline-offset-2 outline-royal-500; }
+}
+
+@layer components {
+  /* One page width + gutter used by header, footer and every page. */
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  /* Red→orange gradient text, for ONE emphasised word in a headline. */
+  .text-gradient { @apply bg-brand-gradient bg-clip-text text-transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
